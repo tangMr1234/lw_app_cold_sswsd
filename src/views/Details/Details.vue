@@ -13,7 +13,7 @@
               {{details.coolername.value}}
             </td>
           </tr>
-          <tr v-for="data in details.cooler">
+          <tr v-for="(data,index) in details.cooler" :key="index">
             <td style="text-align:left;padding:0 30px;"><span style="color:#666;">{{data.label}}：</span>
               {{data.value}}
             </td>
@@ -24,7 +24,7 @@
       <!-- 装备温区table -->
       <group :title="details.spacetitle">
         <x-table>
-          <tbody v-for="data in details.space">
+          <tbody v-for="(data, index) in details.space" :key="index">
           <tr>
             <td rowspan="2" width="30%">{{data.label}}：</td>
             <td style="text-align:left;padding:0 30px;"><span
@@ -45,9 +45,9 @@
       <divider></divider>
       <divider>该装备拥有探头信息</divider>
       <!-- 装备探头信息 -->
-      <group :gutter="10" v-for="data in sensor">
+      <group :gutter="10" v-for="(data, index) in sensor" :key="index">
         <cell :title="data.name.label+'：'+data.name.value" :inline-desc="data.sn.label+'：'+data.sn.value">
-          <div slot="value">{{data.model.label}}：{{data.model.value}}
+          <div slot="default">{{data.model.label}}：{{data.model.value}}
             <br>
             {{data.enabledate.label}}：{{data.enabledate.value}}
           </div>

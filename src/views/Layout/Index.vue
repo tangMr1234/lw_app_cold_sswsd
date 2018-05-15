@@ -21,7 +21,7 @@
           </div>
         </template>
         <!-- 数据展示列表 -->
-        <div v-for="item in TableData.data">
+        <div v-for="(item, index) in TableData.data" :key="index">
           <!-- 区县单位结果 -->
           <sticky>
             <group gutter="10">
@@ -36,14 +36,15 @@
           <!-- 数据列表型展示 -->
           <flexbox :gutter="0">
             <flexbox-item>
-              <group class="TableBorderNone" label-width="6em" v-for="item in item.cooler">
+              <group class="TableBorderNone" label-width="6em" v-for="(item,index) in item.cooler" :key="index">
                 <group-title slot="title">{{item.title}}<span :style="'color:'+item.bgColor+';float:right;'">{{item.type}}</span>
                 </group-title>
                 <cell primary="content" @click.native="show"><img
                   :src="item.img"
                   alt="" slot="title">
-                  <div slot="value" style="text-align:left;">
-                    <x-table :cell-bordered="false" :content-bordered="false" v-for="data in item.sensorData">
+                  <div slot="default" style="text-align:left;">
+                    <x-table :cell-bordered="false" :content-bordered="false" v-for="(data, index) in item.sensorData"
+                             :key="index">
                       <tbody>
                       <tr>
                         <td style="color:#444;text-align:left;padding-left:30px;">{{data.sensor}}</td>

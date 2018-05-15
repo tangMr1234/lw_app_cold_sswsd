@@ -29,7 +29,7 @@
       <pull-to>
         <x-table :cell-bordered="false" :content-bordered="false" style="background-color:#fff;">
           <tbody>
-          <tr v-for="data in tableData">
+          <tr v-for="(data, index) in tableData" :key="index">
             <td width="40%">{{data.date}}</td>
             <td width="30%">{{data.temp}}℃</td>
             <td width="30%">{{data.humi}}% RH</td>
@@ -55,7 +55,7 @@
       return {
         demo4: 'TODAY',
         replaceTextList: {
-            'TODAY': '今'
+          'TODAY': '今'
         },
         commonList: ['探头01', '探头02', '探头03'],
         radioValue: ['探头01'],
@@ -93,7 +93,7 @@
         this.loadData();
       },
       //数据加载
-      loadData(){
+      loadData() {
         this.load = true;
         setTimeout(() => {
           this.load = false;

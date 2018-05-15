@@ -22,7 +22,9 @@
             default-item-class="demo5-item"
             selected-item-class="demo5-item-selected" style="margin-top:10px;display: flex;"
           >
-            <checker-item v-for="data in clooerType1.data" :value="data.id" style="margin-bottom:10px;">{{data.title}}
+            <checker-item v-for="(data,index) in clooerType1.data" :key="index" :value="data.id"
+                          style="margin-bottom:10px;">
+              {{data.title}}
             </checker-item>
           </checker>
         </group>
@@ -33,7 +35,8 @@
             default-item-class="demo5-item"
             selected-item-class="demo5-item-selected" style="margin-top:10px;display: flex;"
           >
-            <checker-item v-for="data in clooerType2.data" :value="data.id" style="margin-bottom:10px;">{{data.title}}
+            <checker-item v-for="(data, index) in clooerType2.data" :key="index" :value="data.id"
+                          style="margin-bottom:10px;">{{data.title}}
             </checker-item>
           </checker>
         </group>
